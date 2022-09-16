@@ -1,7 +1,4 @@
 import React from 'react'
-import gsap from 'gsap';
-import { useDispatch, useSelector } from 'react-redux';
-import { ops } from '../Utilities/contactApproved'
 import one from './1.png'
 import two from './2.png'
 import three from './3.png'
