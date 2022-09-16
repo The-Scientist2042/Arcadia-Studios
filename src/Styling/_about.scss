@@ -1,0 +1,30 @@
+#about{
+    padding: 3rem;
+    #abouttitle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        font-family: 'Allerta Stencil', sans-serif;
+    }
+    #aboutContent{
+        .carousel-inner{
+            // border: 2px solid red;
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            // flex-direction: column;
+            padding: 4rem 8rem 8rem 8rem;
+            .one, .two, .three{
+                h1{
+                    font-family: 'Allerta Stencil', sans-serif;
+                    margin-bottom: 1.5rem;
+                    text-decoration: underline;
+                }
+                li{
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
