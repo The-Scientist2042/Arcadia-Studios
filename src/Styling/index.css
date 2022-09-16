@@ -453,9 +453,6 @@
   font-family: "Allerta Stencil", sans-serif;
 }
 
-#contact .carousel-inner .carousel-item {
-  border: 1px solid red;
-}
 #contact .carousel-inner .carousel-item img {
   width: 40rem;
   height: 40rem;
