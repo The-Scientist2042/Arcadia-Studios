@@ -1,119 +1,64 @@
 import React from 'react'
-import { useRef, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 import gsap from 'gsap';
 import { useDispatch, useSelector } from 'react-redux';
 import { ops } from '../Utilities/contactApproved'
+import one from './1.png'
+import two from './2.png'
+import three from './3.png'
 
 
 function Contact() {
-  const dispatch = useDispatch()
-  const checke = useSelector(
-    (state) => {
-        return(
-            state.contat.value
-        )
-    }
-)
-
-  useEffect(
-    () =>{
-      const tl =gsap.timeline()
-      tl.from('#conimg',{opacity:0,x:-30,duration:1})
-      tl.from('#conform',{opacity:0,x:30,duration:1})
-    },[]
-  )
-
-  const form = useRef()
-    
-    const sendEmail = (event) => {
-      dispatch(ops())
-        event.preventDefault();
-        emailjs
-        .sendForm('service_rg8jp3j', 'template_en49vz6', form.current , 'x2Sry9pgMsRig8_82')
-            .then((result) => {
-            console.log(result.text);
-            }, 
-            (error) => {
-            console.log(error.text);
-            },
-            form.current.reset()
-            );
-    }
+  
   return (
     <div>
       <div id="owner">
       <div id='landingContainer' className='container-fluid'>
           <div id="home" className='row'>
-          <div id="contact" className='row'>
-            <div className='col' id="conimg">
-              <div id="conimage">
-
-              </div>
+            <div id="contact" className='row'>
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src={one} class="d-block " alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Toxic Faction</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src={two} class="d-block " alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Water Faction</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src={three} class="d-block" alt="..."/>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Fire Faction</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
             </div>
-            <div className="col" id="conform">
-              <form ref={form} className="row" onSubmit={sendEmail} id='form--row'>
-                <div className="col-12" id="form--first--col">
-                    Email: <input
-                    type="email"
-                    name="email" 
-                    placeholder="Email"
-                    
-                    />
-                </div>
-                <div className="col-12" id="form--second--col">
-                    Name: <input
-                    type="text"
-                    name="name" 
-                    placeholder="Enter Name"
-                    />
-                </div>
-                <div className="col-12" id="form--third--col">
-                    Message: <textarea
-                    type="text-area"
-                    name="message" 
-                    placeholder="Enter Message"
-                    />
-                </div>
-                <div className="col-12" id="form--fourth--col">
-                    <button
-                    onClick={sendEmail}
-                    >
-                        Contact Me
-                    </button>
-                </div>
-              </form>
-              <div className='row' id="socials">
-                <a rel="noreferrer noopener" target="_blank" href="https://www.instagram.com/e._lyon/"><i className="fa-brands fa-instagram"></i></a>
-                <a rel="noreferrer noopener" target="_blank" href="https://twitter.com/Darkonethesixth"><i className="fa-brands fa-twitter"></i></a>
-                <a rel="noreferrer noopener" target="_blank" href="https://www.linkedin.com/in/elyon-omidiora-657a89248/"><i className="fa-brands fa-linkedin-in"></i></a>
-                <a rel="noreferrer noopener" target="_blank" href="https://github.com/The-Scientist2042"><i className="fa-brands fa-github"></i></a>
-              </div>
-               <h3>
-                <a rel="noreferrer noopener" target="_blank" href="http://itiselyon@gmail.com">
-                itiselyon@gmail.com
-                </a>
-               </h3>
-            </div>
-            <div id={checke}>
-            <div id="appear">
-            <div id="holdma">
-            <div id="cir">
-              <h1>
-                SENT  
-              </h1>
-            </div>
-            <button id="exc" onClick={() => {
-              dispatch(ops())
-            }}>
-            <i class="fa-solid fa-xmark"></i>
-            </button>
-            </div>
-          </div>
-            </div>
-          </div>
+          </div> 
+              
+               
+            
           
-          </div>
         </div>
     </div>
     </div>
